@@ -18,8 +18,10 @@ const gamestateSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     }
-}, {
-    timestamps: true,
-});
+} 
+// ,{
+//     timestamps: true,
+// }
+);
 
 module.exports = mongoose.model('Gamestate', gamestateSchema);
