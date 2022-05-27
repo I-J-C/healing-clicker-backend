@@ -8,6 +8,9 @@ const userController = require('./controllers/users');
 
 const app = express();
 
+app.get('/', (req, res) => {
+	res.redirect('/api');
+});
 
 app.use(cors());
 app.use(express.json());
