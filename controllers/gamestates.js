@@ -32,26 +32,26 @@ router.post('/', requireToken, (req, res, next) => {
 
 // UPDATE
 
-router.put('/:id', handleValidateId, requireToken, (req, res, next) => {
-    Gamestate.findById(req.params.id)
-    .then(handleRecordExists)
-    .then((gamestate) => handleValidateOwnership(req, gamestate))
-    .then((gamestate) => gamestate.set(req.body).save())
-    .then((gamestate) => {
-        res.json(gamestate);
-    })
-    .catch(next);
-})
+// router.put('/:id', handleValidateId, requireToken, (req, res, next) => {
+//     Gamestate.findById(req.params.id)
+//     .then(handleRecordExists)
+//     .then((gamestate) => handleValidateOwnership(req, gamestate))
+//     .then((gamestate) => gamestate.set(req.body).save())
+//     .then((gamestate) => {
+//         res.json(gamestate);
+//     })
+//     .catch(next);
+// })
 
 //delete
 
-router.delete('/:id', handleValidateId, requireToken, (req, res, next) => {
-    Gamestate.findById(req.params.id)
-    .then(handleRecordExists)
-    .then((gamestate) => handleValidateOwnership(req, gamestate))
-    .then((gamestate) => gamestate.remove())
-    .then((gamestate) => {
-        res.sendStatus(204);
-    })
-    .catch(next);
-})
+// router.delete('/:id', handleValidateId, requireToken, (req, res, next) => {
+//     Gamestate.findById(req.params.id)
+//     .then(handleRecordExists)
+//     .then((gamestate) => handleValidateOwnership(req, gamestate))
+//     .then((gamestate) => gamestate.remove())
+//     .then((gamestate) => {
+//         res.sendStatus(204);
+//     })
+//     .catch(next);
+// })
