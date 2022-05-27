@@ -4,7 +4,7 @@ const cors = require('cors');
 const { handleErrors, handleValidationErrors } = require('./middleware/custom_errors');
 
 const userController = require('./controllers/users');
-// const jobController = require('./controllers/jobs');
+const gamestateController = require('./controllers/gamestate');
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', userController);
-// app.use('/api/jobs', jobController);
+app.use('/api/saves', gamestateController);
 
 
 
