@@ -5,6 +5,10 @@ const gamestateSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
+    idleBones: {
+        type: Number,
+        default: 0,
+    },
     upgrades: {
         shovel: {type: Number,
         default: 0,
