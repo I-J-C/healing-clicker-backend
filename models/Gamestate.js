@@ -9,8 +9,8 @@ const gamestateSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
-    
-    shovel: {type: Number,
+    shovel: {
+        type: Number,
         default: 0,
     },
     boneBro: {type: Number,
