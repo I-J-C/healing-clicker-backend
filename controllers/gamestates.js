@@ -14,13 +14,13 @@ router.get('/', (req, res, next) => {
         .catch(next);
 });
 
-router.get('/:id', handleValidateId, (req, res, next) => {
-    Gamestate.findById(req.params.id)
-    .then(handleRecordExists)
-    .then((gamestate) => handleValidateOwnership(req, gamestate))
-    .then((gamestate) => res.json(gamestate))
-    .catch(next);
-})
+// router.get('/:id', handleValidateId, (req, res, next) => {
+//     Gamestate.findById(req.params.id)
+//     .then(handleRecordExists)
+//     .then((gamestate) => handleValidateOwnership(req, gamestate))
+//     .then((gamestate) => res.json(gamestate))
+//     .catch(next);
+// })
 
 // POST /gamestate
 
