@@ -10,23 +10,23 @@ const {
 
 router.get('/', (req, res, next) => {
     Gamestate.find()
-        .then((saves)=>res.json(saves))
+        .then((gamestates)=>res.json(gamestates))
         .catch(next);
 });
 
-router.get('/:id', handleValidateId, requireToken, (req, res, next) => {
+router.get('/:id', handleValidateId, (req, res, next) => {
     Gamestate.findById(req.params.id)
     .then(handleRecordExists)
-    .then((save) => handleValidateOwnership(req, save))
-    .then((save) => res.json(save))
+    .then((gamestate) => handleValidateOwnership(req, gamestate))
+    .then((gamestate) => res.json(gamestate))
     .catch(next);
 })
 
-// POST /save
+// POST /gamestate
 
 router.post('/', requireToken, (req, res, next) => {
     Gamestate.create({ ... req.body, owner: req.user_id })
-    .then((save) => res.status(201).json(save))
+    .then((gamestate) => res.status(201).json(gamestate))
     .catch(next);
 })
 
@@ -35,10 +35,10 @@ router.post('/', requireToken, (req, res, next) => {
 router.put('/:id', handleValidateId, requireToken, (req, res, next) => {
     Gamestate.findById(req.params.id)
     .then(handleRecordExists)
-    .then((save) => handleValidateOwnership(req, save))
-    .then((save) => save.set(req.body).save())
-    .then((save) => {
-        res.json(save);
+    .then((gamestate) => handleValidateOwnership(req, gamestate))
+    .then((gamestate) => gamestate.set(req.body).save())
+    .then((gamestate) => {
+        res.json(gamestate);
     })
     .catch(next);
 })
@@ -48,9 +48,9 @@ router.put('/:id', handleValidateId, requireToken, (req, res, next) => {
 router.delete('/:id', handleValidateId, requireToken, (req, res, next) => {
     Gamestate.findById(req.params.id)
     .then(handleRecordExists)
-    .then((save) => handleValidateOwnership(req, save))
-    .then((save) => save.remove())
-    .then((save) => {
+    .then((gamestate) => handleValidateOwnership(req, gamestate))
+    .then((gamestate) => gamestate.remove())
+    .then((gamestate) => {
         res.sendStatus(204);
     })
     .catch(next);
