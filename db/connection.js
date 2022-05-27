@@ -4,11 +4,10 @@ const mongoose = require('mongoose');
 const db = mongoose.connection;
 const mongoURI =
   process.env.NODE_ENV === 'production'
-    ? process.env.MONGODB_URI
+    ? process.env.DB_URL
     : 'mongodb://localhost/healing-clicker';
 
   mongoose.connect(mongoURI);
-
 
     // mongoose.connect(mongoURI, { useNewUrlParser: true },{ useUnifiedTopology: true })
     // .then(instance =>
