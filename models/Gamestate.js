@@ -9,16 +9,15 @@ const gamestateSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
-    upgrades: {
-        shovel: {type: Number,
+    
+    shovel: {type: Number,
         default: 0,
-        },
-        boneBro: {type: Number,
-            default: 0,
-        },
-        skeleSnake: {type: Number,
-            default: 0,
-        }
+    },
+    boneBro: {type: Number,
+        default: 0,
+    },
+    skeleSnake: {type: Number,
+        default: 0,
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,

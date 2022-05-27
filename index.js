@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', userController);
-app.use('/api/saves', gamestateController);
+app.use('/api/save', gamestateController);
 
 
 
