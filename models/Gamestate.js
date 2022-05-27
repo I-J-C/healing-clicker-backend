@@ -1,24 +1,11 @@
 const mongoose = require('../db/connection');
 
 const gamestateSchema = new mongoose.Schema({
-    currency: {
-        type: Number,
-        default: 0,
-    },
-    idleBones: {
-        type: Number,
-        default: 0,
-    },
-    shovel: {
-        type: Number,
-        default: 0,
-    },
-    boneBro: {type: Number,
-        default: 0,
-    },
-    skeleSnake: {type: Number,
-        default: 0,
-    },
+    currency: Number,
+    idleBones: Number,
+    shovel: Number,
+    boneBro: Number,
+    skeleSnake: Number,
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
